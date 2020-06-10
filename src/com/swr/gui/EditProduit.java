@@ -8,6 +8,7 @@ package com.swr.gui;
 import com.codename1.capture.Capture;
 import com.codename1.components.ImageViewer;
 import com.codename1.components.InfiniteProgress;
+import com.codename1.components.ToastBar;
 import com.codename1.ext.filechooser.FileChooser;
 import com.codename1.io.FileSystemStorage;
 import com.codename1.io.Log;
@@ -35,6 +36,7 @@ import com.swr.entities.Categorie;
 import java.util.ArrayList;
 import com.swr.services.ServiceCategorie;
 import com.codename1.util.StringUtil;
+import com.swr.entities.SessionUser;
 import com.swr.entities.produit;
 import java.io.IOException;
 import java.io.InputStream;
@@ -117,8 +119,15 @@ public class EditProduit extends BaseForm {
         Button add = new Button("Modifier produit");
         
         add.addActionListener((e)->{
+            int test=0;
+            if(tnom.getText() =="" || tprix.getText()=="" || tquant.getText()=="" || im == null ||Float.parseFloat(tprix.getText())<=0  || Integer.parseInt(tquant.getText())<=0     ){
+                test=1;
+                ToastBar.showMessage("verifier les champs ", FontImage.MATERIAL_INFO); 
+            }
+            if(test==0)
+            {
             
-            p.setIdUtilisateur(11);
+            p.setIdUtilisateur(SessionUser.loggedUser.getId());
             p.setImage_name(im);
             p.setNom(tnom.getText());
             p.setPrix(Float.parseFloat(tprix.getText()));
@@ -129,7 +138,7 @@ public class EditProduit extends BaseForm {
                 Produits a =  new Produits(theme);
                 a.showBack();
             }
-            
+            }
             ;
         });
         

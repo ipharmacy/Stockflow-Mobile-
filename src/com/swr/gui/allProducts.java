@@ -32,51 +32,54 @@ import jdk.nashorn.internal.objects.NativeString;
  *
  * @author Dhia
  */
-public class Produits extends BaseForm{
+public class allProducts extends BaseForm{
     Form current; 
     Resources theme= UIManager.initFirstTheme("/theme");
     
-    Produits(Resources theme) {
+   allProducts(Resources theme) {
        
         current=this;
 
           setTitle("Produits"); 
           
           
-        FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
+        /*FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
         fab.addActionListener(e -> new AddProduit(theme).show());
         fab.bindFabToContainer(this.getContentPane());
-        
-       for(produit p:com.swr.services.ServiceProduit.getInstance().getAllproduits(SessionUser.loggedUser.getId()))
+        */
+       for(produit p:com.swr.services.ServiceProduit.getInstance().getAllproduit())
         { 
             this.add(setProduit(p));
            
         } 
 
 
-       getToolbar().addCommandToOverflowMenu("Statistique produits", null, new ActionListener() {
+       getToolbar().addCommandToOverflowMenu("Vos produits", null, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-             new statProd().createPieChartForm1(theme).show();
+             new Produits(theme).show();
             }
-        }); 
-       
-         getToolbar().addCommandToOverflowMenu("Logout", null, new ActionListener() {
+        });     
+        getToolbar().addCommandToOverflowMenu("Top produits", null, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+             new topConsulted(theme).show();
+            }
+        });     
+       getToolbar().addCommandToOverflowMenu("Logout", null, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
              new SignInForm().show();
             }
         });     
-      
-           
-        
+       
     } 
     
       private Container setProduit(produit p)
     {
         Container cnt=new Container(new BorderLayout());
         Container cnt2= new Container(BoxLayout.y());
-        
+       
         Label lbnom=new Label(""+p.getNom());
         Label lbprix=new Label("Prix :"+p.getPrix()+" dt");
         
@@ -94,22 +97,9 @@ public class Produits extends BaseForm{
         
        
         Container supedit = new Container(BoxLayout.x());
-        Label supp = new Label("supprimer");
-        supp.addPointerPressedListener((e)->{
-            com.swr.services.ServiceProduit SP = new ServiceProduit();
-            if(ServiceProduit.getInstance().deleteProduit(p.getId_produit())){
-                Produits refresh = new Produits(theme);
-                refresh.show();
-            }
-        });
         
-        Label edit = new Label("modifier");
-        edit.addPointerPressedListener((e)->{
-            EditProduit ep = new EditProduit(theme, p);
-            ep.show();
-        });
         
-        supedit.addAll(supp,edit);
+      
         cnt2.addAll(lbnom,lbprix,lbdate,lbcategory,supedit);
         cnt.add(BorderLayout.WEST,lbimg);
         cnt.add(BorderLayout.CENTER,cnt2);
