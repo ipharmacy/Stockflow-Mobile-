@@ -103,7 +103,7 @@ public class AddProduit extends BaseForm {
         });
  
          this.getToolbar().addMaterialCommandToLeftBar("Back", FontImage.MATERIAL_ARROW_BACK, (e) -> {
-            Produits l = new Produits(theme);
+            Produits l = new Produits(this,theme);
             l.show();
         });
         
@@ -127,7 +127,7 @@ public class AddProduit extends BaseForm {
             
             if(com.swr.services.ServiceProduit.getInstance().addproduit(p,comb.getSelectedItem().getId())){
                 System.out.println("added produit");
-                Produits a =  new Produits(theme);
+                Produits a =  new Produits(this,theme);
                 a.showBack();
             }
             }

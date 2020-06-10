@@ -54,6 +54,7 @@ public class EditProduit extends BaseForm {
     com.swr.services.ServiceCategorie SC = new ServiceCategorie();
     
     private String im ;
+   
     
     EditProduit(Resources theme,produit p) {
         setTitle("Ajouter un produit");
@@ -135,7 +136,7 @@ public class EditProduit extends BaseForm {
             
             if(com.swr.services.ServiceProduit.getInstance().Editproduit(p,comb.getSelectedItem().getId())){
                 System.out.println("added produit");
-                Produits a =  new Produits(theme);
+                Produits a =  new Produits(this,theme);
                 a.showBack();
             }
             }

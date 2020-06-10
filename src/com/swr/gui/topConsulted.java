@@ -36,12 +36,12 @@ public class topConsulted extends BaseForm{
     Form current; 
     Resources theme= UIManager.initFirstTheme("/theme");
     
-   topConsulted(Resources theme) {
+   topConsulted(Form previous,Resources theme) {
        
         current=this;
 
           setTitle("Les plus consultés"); 
-          
+          getToolbar().addMaterialCommandToLeftBar("Back", FontImage.MATERIAL_ARROW_BACK,e -> previous.showBack() );
           
         /*FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
         fab.addActionListener(e -> new AddProduit(theme).show());

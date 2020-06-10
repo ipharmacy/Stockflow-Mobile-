@@ -36,12 +36,13 @@ public class allProducts extends BaseForm{
     Form current; 
     Resources theme= UIManager.initFirstTheme("/theme");
     
-   allProducts(Resources theme) {
+   allProducts(Form previous,Resources theme) {
        
         current=this;
 
           setTitle("Produits"); 
-          
+                 getToolbar().addMaterialCommandToLeftBar("Home", FontImage.MATERIAL_ARROW_BACK,e -> previous.showBack() ); 
+     
           
         /*FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
         fab.addActionListener(e -> new AddProduit(theme).show());
@@ -57,13 +58,13 @@ public class allProducts extends BaseForm{
        getToolbar().addCommandToOverflowMenu("Vos produits", null, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-             new Produits(theme).show();
+             new Produits(current,theme).show();
             }
         });     
         getToolbar().addCommandToOverflowMenu("Top produits", null, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-             new topConsulted(theme).show();
+             new topConsulted(current,theme).show();
             }
         });     
        getToolbar().addCommandToOverflowMenu("Logout", null, new ActionListener() {
