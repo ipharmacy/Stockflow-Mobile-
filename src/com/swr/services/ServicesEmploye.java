@@ -141,7 +141,7 @@ public class ServicesEmploye {
         return employes;
     }
 
-    public ArrayList<Employe> getAllEmployes() {
+    public ArrayList<Employe> getAllEmployes(){
         String url = Statics.BASE_URL + "/employe/findAllEmployes";
         req.setUrl(url);
         req.setPost(false);
@@ -155,6 +155,45 @@ public class ServicesEmploye {
         NetworkManager.getInstance().addToQueueAndWait(req);
         return employes;
     }
+    
+//    
+     public ArrayList<Employe> getAllEmployesSortedByLastName(){
+        String url = Statics.BASE_URL + "/employe/sortLastName";
+        req.setUrl(url);
+        req.setPost(false);
+        req.addResponseListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                employes = parseEmployes(new String(req.getResponseData()));
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return employes;
+    }
+    
+     
+     public ArrayList<Employe> getAllEmployesSortedByStatus(){
+        String url = Statics.BASE_URL + "/employe/sortstatus";
+        req.setUrl(url);
+        req.setPost(false);
+        req.addResponseListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                employes = parseEmployes(new String(req.getResponseData()));
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return employes;
+    }
+    
+    
+    
+    
+    
+    
+    
 
     public ArrayList<Employe> getEmploye(String Name) {
         String url = Statics.BASE_URL + "/employe/returnEmploye?prenom=" + Name;

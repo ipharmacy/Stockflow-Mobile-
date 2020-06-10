@@ -95,11 +95,7 @@ public class ServicesRecrutement {
                 r.setNumTel((int)numTel);
                 r.setEtat((int)etat);
                 r.setDt(dt);
-                
-//                LinkedHashMap<String,Object> date = (LinkedHashMap<String,Object>) obj.get("dateNaissance"); 
-//                        double k = (double) date.get("timestamp");
-//                        long x = (long) (k * 1000L);
-//                        r.setDateNaissance(new Date(x));
+      
                recrutements.add(r);
             }
         } catch (IOException ex) {

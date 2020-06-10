@@ -118,6 +118,10 @@ public class User {
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
+    
+    public void setUtilisateur(String username) {
+        this.username = username;
+    }
 
     public String getImage() {
         return image;
