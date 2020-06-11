@@ -60,7 +60,7 @@ Resources theme;
         
          // spacer
         
-        getToolbar().addComponentToSideMenu(new Label(res.getImage("admin.png"), "Container"));
+        getToolbar().addComponentToSideMenu(new Label(res.getImage("toolbar-profile-pic.png"), "Container"));
         getToolbar().addComponentToSideMenu(new Label("Connecté en tant que "+SessionUser.loggedUser.getUsername(), "SideCommandNoPad"));
         getToolbar().addComponentToSideMenu(new Label(" ", "SideCommand"));
         

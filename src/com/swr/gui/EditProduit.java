@@ -8,6 +8,8 @@ package com.swr.gui;
 import com.codename1.capture.Capture;
 import com.codename1.components.ImageViewer;
 import com.codename1.components.InfiniteProgress;
+import com.codename1.components.InteractionDialog;
+import com.codename1.components.SpanLabel;
 import com.codename1.components.ToastBar;
 import com.codename1.ext.filechooser.FileChooser;
 import com.codename1.io.FileSystemStorage;
@@ -27,6 +29,7 @@ import com.codename1.ui.Label;
 import com.codename1.ui.List;
 import com.codename1.ui.TextField;
 import com.codename1.ui.URLImage;
+import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Style;
@@ -121,13 +124,23 @@ public class EditProduit extends BaseForm {
         
         add.addActionListener((e)->{
             int test=0;
-            if(tnom.getText() =="" || tprix.getText()=="" || tquant.getText()=="" || im == null ||Float.parseFloat(tprix.getText())<=0  || Integer.parseInt(tquant.getText())<=0     ){
+            /*if(tnom.getText() =="" || tprix.getText()=="" || tquant.getText()=="" || im == null ||Float.parseFloat(tprix.getText())<=0  || Integer.parseInt(tquant.getText())<=0     ){
                 test=1;
                 ToastBar.showMessage("verifier les champs ", FontImage.MATERIAL_INFO); 
             }
             if(test==0)
-            {
-            
+            {*/
+             if (tnom.getText() =="" || tprix.getText()=="" || tquant.getText()=="" || im == null ||Float.parseFloat(tprix.getText())<=0  || Integer.parseInt(tquant.getText())<=0   ) {
+            InteractionDialog dlg = new InteractionDialog("Erreur d'ajout");
+            dlg.setLayout(new BorderLayout());
+            dlg.add(BorderLayout.CENTER, new SpanLabel("Veuillez remplir tous les champs avec des valeurs logique"));
+            Button close = new Button("Close");
+            close.addActionListener((ee) -> dlg.dispose());
+            dlg.addComponent(BorderLayout.SOUTH, close);
+            Dimension pre = dlg.getContentPane().getPreferredSize();
+            dlg.show(50, 100, 30, 30);
+            return;
+             }
             p.setIdUtilisateur(SessionUser.loggedUser.getId());
             p.setImage_name(im);
             p.setNom(tnom.getText());
@@ -139,7 +152,7 @@ public class EditProduit extends BaseForm {
                 Produits a =  new Produits(this,theme);
                 a.showBack();
             }
-            }
+            
             ;
         });
         
