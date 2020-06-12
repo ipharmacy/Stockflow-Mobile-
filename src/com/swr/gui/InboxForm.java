@@ -320,7 +320,7 @@ public class InboxForm extends BaseForm {
         
         ((com.codename1.ui.layouts.FlowLayout)gui_Container_4_3.getLayout()).setAlign(com.codename1.ui.Component.CENTER);
         gui_Container_3_3.setName("Container_3_3");
-         gui_Label_6.setIcon(resourceObjectInstance.getImage("cmp.jpg"));
+         gui_Label_6.setIcon(resourceObjectInstance.getImage(""));
           gui_Label_6.setUIID("CenterLabel");
        gui_Container_3_3.addComponent(gui_Label_6);
        Container ct = new Container(BoxLayout.xCenter());

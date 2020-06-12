@@ -106,10 +106,9 @@ public class SignInForm extends com.codename1.ui.Form {
         gui_Text_Field_1.setText("Password");
         gui_Text_Field_1.setName("Text_Field_1");
         gui_Container_1.addComponent(gui_Button_2);
-        gui_Container_1.addComponent(gui_Button_3);
-        gui_Label_1.setUIID("CenterLabel");
+        gui_Container_1.addComponent(gui_Button_3);        gui_Label_1.setUIID("CenterLabel");
         gui_Label_1.setName("Label_1");
-        gui_Label_1.setIcon(resourceObjectInstance.getImage("logosignin.png"));
+        gui_Label_1.setIcon(resourceObjectInstance.getImage("stocklogo.png"));
         gui_Component_Group_1.setName("Component_Group_1");
         gui_Button_2.setText("Sign In");
         gui_Button_2.setName("Button_2");

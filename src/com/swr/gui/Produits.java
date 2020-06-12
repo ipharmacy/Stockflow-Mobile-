@@ -83,6 +83,7 @@ public class Produits extends BaseForm{
         
         Label lbdate=new Label("publié le "+ p.getDate().substring(0,10));
         Label lbcategory=new Label("Categorie :"+p.getIdCategorie().get("nom"));
+        Label lbquant=new Label("Quantite :"+p.getQuantite());
         
         
         
@@ -111,7 +112,7 @@ public class Produits extends BaseForm{
         });
         
         supedit.addAll(supp,edit);
-        cnt2.addAll(lbnom,lbprix,lbdate,lbcategory,supedit);
+        cnt2.addAll(lbnom,lbprix,lbdate,lbcategory,lbquant,supedit);
         cnt.add(BorderLayout.WEST,lbimg);
         cnt.add(BorderLayout.CENTER,cnt2);
         /*btn.addActionListener((e)->{

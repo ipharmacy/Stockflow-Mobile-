@@ -89,6 +89,8 @@ public class ServiceProduit {
                 t.setId_produit((int)idP);
                 float nb = Float.parseFloat(obj.get("nbvue").toString());
                 t.setNbvue((int)nb);
+                float qt = Float.parseFloat(obj.get("quantite").toString());
+                t.setQuantite((int)qt);
                 float idU = Float.parseFloat(obj.get("idUtilisateur").toString());
                 t.setIdUtilisateur((int)idU);
                 t.setImage_name(obj.get("imageName").toString());

@@ -3,6 +3,9 @@
 <resource majorVersion="1" minorVersion="11" useXmlUI="false">
     <image name="admin.png" type="multi"  />
     <image name="background.jpg"  />
+    <image name="biz.jpg" type="multi"  />
+    <image name="bizo.png" type="multi"  />
+    <image name="bizou.jpg" type="multi"  />
     <image name="bla.jpg"  />
     <image name="blog-01.png"  />
     <image name="bridge.jpg"  />
@@ -608,10 +611,10 @@
         <val key="SideCommandSmall.padUnit" value="0,0,2,0" />
         <val key="SideCommandSmall.padding" value="0,4,0,0" />
         <val key="SideCommandSmall.textDecoration" value="0" />
-        <val key="SideNavigationPanel.bgImage" value="sidemenu-background.jpg" />
+        <val key="SideNavigationPanel.bgImage" value="background.jpg" />
         <val key="SideNavigationPanel.bgType" value="33" />
         <val key="SideNavigationPanel.padUnit" value="2,2,0,0" />
-        <val key="SideNavigationPanel.padding" value="16,0,5,0" />
+        <val key="SideNavigationPanel.padding" value="16.0,0.0,5.0,0.0" />
         <val key="SignInForm.bgColor" value="ffffff" />
         <val key="SignInForm.padUnit" value="2,2,2,2" />
         <val key="SignInForm.padding" value="2,2,3,3" />
