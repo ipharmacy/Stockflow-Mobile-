@@ -7,7 +7,7 @@ package com.swr.entities;
 
 /**
  *
- * @author Asus X550V
+ * @author Dhia
  */
 public class User {
      protected int id;

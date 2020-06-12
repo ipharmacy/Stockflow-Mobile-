@@ -28,6 +28,7 @@ import com.codename1.ui.Label;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.util.Resources;
+import com.swr.entities.SessionUser;
 
 /**
  * Utility methods common to forms e.g. for binding the side menu
@@ -59,8 +60,8 @@ Resources theme;
         
          // spacer
         
-        getToolbar().addComponentToSideMenu(new Label(res.getImage("profile_image.png"), "Container"));
-        getToolbar().addComponentToSideMenu(new Label("Detra Mcmunn", "SideCommandNoPad"));
+        getToolbar().addComponentToSideMenu(new Label(res.getImage("toolbar-profile-pic.png"), "Container"));
+        getToolbar().addComponentToSideMenu(new Label("Connecté en tant que "+SessionUser.loggedUser.getUsername(), "SideCommandNoPad"));
         getToolbar().addComponentToSideMenu(new Label(" ", "SideCommand"));
         
         Button inboxButton = new Button("Home", inboxImage);
@@ -76,17 +77,13 @@ Resources theme;
        // getToolbar().addCommandToSideMenu("Calendar", calendarImage, e -> new CalendarForm(res).show());
          
         getToolbar().addCommandToSideMenu("Employes", null, e -> {new Employees(this,theme).show();});
-        getToolbar().addCommandToSideMenu("Produits", null, e -> {new Produits(theme).show();});
+        getToolbar().addCommandToSideMenu("Produits", null, e -> {new allProducts(this,theme).show();});
         getToolbar().addCommandToSideMenu("Blog", null, e -> {
               new BlogForm(theme,this).show();
             
 });
-           getToolbar().addCommandToSideMenu("News", null, e -> {});
-            getToolbar().addCommandToSideMenu("Housing", null, e -> {});
-             getToolbar().addCommandToSideMenu("Goods", null, e -> {});
-        //getToolbar().addCommandToSideMenu("Trending", trendingImage, e -> new TrendingForm(res).show());
-        getToolbar().addCommandToSideMenu("Profile", statsImage, e -> {});
-        getToolbar().addCommandToSideMenu("Log out", null, e -> {});
+    
+        getToolbar().addCommandToSideMenu("Log out", null, e -> {new SignInForm().show();});
         
        
         

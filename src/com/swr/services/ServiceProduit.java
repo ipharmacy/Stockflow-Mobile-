@@ -87,6 +87,12 @@ public class ServiceProduit {
                 t.setNom(obj.get("nom").toString());
                  float idP = Float.parseFloat(obj.get("idProduit").toString());
                 t.setId_produit((int)idP);
+                float nb = Float.parseFloat(obj.get("nbvue").toString());
+                t.setNbvue((int)nb);
+                float qt = Float.parseFloat(obj.get("quantite").toString());
+                t.setQuantite((int)qt);
+                float idU = Float.parseFloat(obj.get("idUtilisateur").toString());
+                t.setIdUtilisateur((int)idU);
                 t.setImage_name(obj.get("imageName").toString());
                 t.setDate(obj.get("date").toString());
                 LinkedHashMap<Object,Object> lhmcat = (LinkedHashMap<Object,Object>)obj.get("idCategorie");
@@ -143,8 +149,36 @@ public class ServiceProduit {
         return nbProduit;
     }
     
-    public ArrayList<produit> getAllproduits(){
-        String url = Statics.BASE_URL+"produit/GetAllProduit";
+    public ArrayList<produit> getAllproduits(int idu){
+        String url = Statics.BASE_URL+"produit/GetAllProduit/"+idu;
+        req.setUrl(url);
+        req.setPost(false);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                produits = parseproduits(new String(req.getResponseData()));
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return produits;
+    }
+    public ArrayList<produit> getTopProduits(){
+        String url = Statics.BASE_URL+"produit/getTopProductMobile";
+        req.setUrl(url);
+        req.setPost(false);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                produits = parseproduits(new String(req.getResponseData()));
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return produits;
+    }
+    public ArrayList<produit> getAllproduit(){
+        String url = Statics.BASE_URL+"produit/GetAllProduits";
         req.setUrl(url);
         req.setPost(false);
         req.addResponseListener(new ActionListener<NetworkEvent>() {

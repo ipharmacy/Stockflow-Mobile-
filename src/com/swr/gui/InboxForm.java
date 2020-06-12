@@ -227,11 +227,11 @@ public class InboxForm extends BaseForm {
         gui_Container_1.setName("Container_1");
           gui_Container_1.addComponent(com.codename1.ui.layouts.BorderLayout.EAST, gui_Container_2);
         gui_Container_2.setName("Container_2");
-        gui_Button_2.setText(" Donate Now");
+        gui_Button_2.setText(" Produits");
         gui_Button_2.setName("Button_2");
         gui_Button_2.setUIID("InboxNumber");
         gui_Button_2.setIcon(resourceObjectInstance.getImage("donate1.png"));
-        gui_Button_3.setText(" Our Events");
+        gui_Button_3.setText("Employer");
         gui_Button_3.setName("Button_2");
         gui_Button_3.setUIID("InboxNumber4");
         gui_Button_3.setIcon(resourceObjectInstance.getImage("event-01.png"));
@@ -247,7 +247,7 @@ public class InboxForm extends BaseForm {
        
         gui_Container_3.addComponent(gui_Label_3);
       gui_Container_3.addComponent(gui_Label_2);
-        gui_Label_3.setText("Welcome To SWR ");
+        gui_Label_3.setText("Welcome To Stockflow ");
         gui_Label_3.setName("Label_3");
         gui_Label_3.setUIID("BoldLabel");
       
@@ -278,7 +278,7 @@ public class InboxForm extends BaseForm {
         gui_Container_1_2.addComponent(com.codename1.ui.layouts.BorderLayout.EAST, gui_Container_2_2);
         gui_Container_2_2.setName("Container_2_2");
     
-         gui_Button_4.setText(" The News ");
+         gui_Button_4.setText("Entrepots");
         gui_Button_4.setName("Button_4");
         gui_Button_4.setUIID("InboxNumber3");
         gui_Button_4.setIcon(resourceObjectInstance.getImage("news-01.png"));
@@ -313,38 +313,38 @@ public class InboxForm extends BaseForm {
         gui_Container_1_3.addComponent(com.codename1.ui.layouts.BorderLayout.CENTER, gui_Container_3_3);
         gui_Container_3_3.setName("Container_3_3");
       gui_Container_3_3.addComponent(gui_Label_5);
-        gui_Label_5.setText("Recommended ");
+        gui_Label_5.setText(" ");
         gui_Label_5.setName("Label_5");
         gui_Label_5.setUIID("BoldLabel");
       
         
         ((com.codename1.ui.layouts.FlowLayout)gui_Container_4_3.getLayout()).setAlign(com.codename1.ui.Component.CENTER);
         gui_Container_3_3.setName("Container_3_3");
-         gui_Label_6.setIcon(resourceObjectInstance.getImage("cmp.jpg"));
+         gui_Label_6.setIcon(resourceObjectInstance.getImage(""));
           gui_Label_6.setUIID("CenterLabel");
        gui_Container_3_3.addComponent(gui_Label_6);
        Container ct = new Container(BoxLayout.xCenter());
        Container ct2 = new Container(BoxLayout.yCenter());
         Container ct3 = new Container(BoxLayout.yCenter());
          Container ct4 = new Container(BoxLayout.yCenter());
-       gui_Label_7.setText("224");
+       gui_Label_7.setText("");
        gui_Label_7.setName("Label_7");
        gui_Label_7.setUIID("CenterLabelCmp");
-       gui_Label_8.setText("Donors");
+       gui_Label_8.setText("");
        gui_Label_8.setName("Label_8");
        gui_Label_8.setUIID("CenterLabelCmp");
        ct2.add(gui_Label_7).add(gui_Label_8);
-       gui_Label_9.setText("5260$");
+       gui_Label_9.setText("");
        gui_Label_9.setName("Label_9");
        gui_Label_9.setUIID("CenterLabelCmp");
-       gui_Label_10.setText("Raised");
+       gui_Label_10.setText("");
        gui_Label_10.setName("Label_10");
        gui_Label_10.setUIID("CenterLabelCmp");
        ct3.add(gui_Label_9).add(gui_Label_10);
-       gui_Label_11.setText("7000$");
+       gui_Label_11.setText("");
        gui_Label_11.setName("Label_10");
        gui_Label_11.setUIID("CenterLabelCmp");
-       gui_Label_12.setText("Goal");
+       gui_Label_12.setText("");
        gui_Label_12.setName("Label_12");
        gui_Label_12.setUIID("CenterLabelCmp");
         ct4.add(gui_Label_11).add(gui_Label_12);

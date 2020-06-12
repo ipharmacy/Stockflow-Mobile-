@@ -7,7 +7,7 @@ package com.swr.entities;
 
 /**
  *
- * @author 
+ * @author Dhia
  */
 public class Session {
 

@@ -125,32 +125,33 @@ public class WalkthruForm extends com.codename1.ui.Form {
         gui_tab3.setUIID("Label");
         bg.add(gui_tab3);
         gui_tab1.setSelected(true);
+        Image bla = resourceObjectInstance.getImage("biz.jpg");
+        Image griffith = resourceObjectInstance.getImage("bizou.jpg");
+        Image learn = resourceObjectInstance.getImage("biz.jpg");
         
-        Image bla = resourceObjectInstance.getImage("bla.jpg");
-        Image griffith = resourceObjectInstance.getImage("griffith.jpg");
-        Image learn = resourceObjectInstance.getImage("learn-codename-one.jpg");
+       
         
         gui_tab1Root.setLayout(new BorderLayout());
         gui_tab2Root.setLayout(new BorderLayout());
         gui_tab3Root.setLayout(new BorderLayout());
          
-        String line1 =  "For the past year, with your help we have " +"supported thousands of \n" +"refugees...";
+        String line1 =  " " +"" +"";
         if(!Display.getInstance().isTablet()) {
             line1 = line1.replace('\n', ' ');
         }
 
-        String line2 =  "By Donating to one of our Compaigns you can change someones's life to better ...";
+        String line2 =  "";
         if(!Display.getInstance().isTablet()) {
             line2 = line2.replace('\n', ' ');
         }
 
-        String line3 =  "By attending our Events, checking our Blog and news \n you can be a big part of our community ...";
+        String line3 =  "";
         if(!Display.getInstance().isTablet()) {
             line3 = line3.replace('\n', ' ');
         }
         
         Container content1 = BoxLayout.encloseY(
-                new Label("Solidarity With Refugees", "WelcomeTitle"),
+                new Label("Bienvenu dans stockflow", "WelcomeTitle"),
                 new Label(resourceObjectInstance.getImage("line2.png"), "WelcomeTitle"),
                 new SpanLabel(line1, "WelcomeBody")
         );

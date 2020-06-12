@@ -33,7 +33,60 @@ import java.util.Random;
  * @author Dhia
  */
 
-public class statProd {
+public class statProd extends Form{
+
+    public statProd(Form previous,Resources theme) {
+              getToolbar().addMaterialCommandToLeftBar("Back", FontImage.MATERIAL_ARROW_BACK,e -> previous.showBack() ); 
+
+          double[] values = new double[]{50, 99, 11, 30, 25, 60};
+        // Set up the renderer
+         int[] colors = new int[20];
+         int size=calcnb();
+         System.out.println("TAILLE KADEH"+size+"TAILLE COLORS TAW "+colors.length);
+//       
+            for (int i=0;i<size;i++)
+            {
+                System.out.println("couleur : "+colors[i]);
+                Random rand = new Random();
+                int x1=  rand.nextInt(255);
+                int x2 =  rand.nextInt(255);
+                int x3=  rand.nextInt(255);
+                int x4 =  rand.nextInt(255);
+                colors[i]=ColorUtil.rgb(x1,x2,x3);
+                System.out.println("couleur : "+colors[i]);
+             }
+        
+         
+     //  int[] colors = new int[]{ColorUtil.BLUE, ColorUtil.GREEN, ColorUtil.MAGENTA, ColorUtil.YELLOW, ColorUtil.CYAN};
+       //ColorUtil.argb(15, 14, 200,50)};
+        DefaultRenderer renderer = buildCategoryRenderer(colors);
+        renderer.setZoomButtonsVisible(true);
+        renderer.setZoomEnabled(true);
+        renderer.setChartTitleTextSize(200);
+        renderer.setDisplayValues(true);
+        renderer.setShowLabels(true);
+        SimpleSeriesRenderer r = renderer.getSeriesRendererAt(0);
+        r.setGradientEnabled(true);
+        r.setGradientStart(0, ColorUtil.BLUE);
+        r.setGradientStop(0, ColorUtil.GREEN);
+        r.setHighlighted(true);
+            
+        // Create the chart ... pass the values and renderer to the chart object.
+        PieChart chart = new PieChart(buildCategoryDataset("Pourcentages", values), renderer);
+        // Wrap the chart in a Component so we can add it to a form
+        ChartComponent c = new ChartComponent(chart);
+        // Create a form and show it.
+        Form f = new Form("Statistique");
+        this.setLayout(new BorderLayout());
+        this.addComponent(BorderLayout.CENTER, c);
+        // menu  cc= new menu(theme);
+        //Toolbar
+        
+        Toolbar.setGlobalToolbar(true);
+        Style s = UIManager.getInstance().getComponentStyle("TitleCommand");
+        FontImage icon = FontImage.createMaterial(FontImage.MATERIAL_HOME, s);
+        
+    }
     
   
     
@@ -79,8 +132,11 @@ public class statProd {
 
         return series;
     }
-    public Form createPieChartForm1(Resources theme) {
+    public Form createPieChartForm1(Form previous,Resources theme) {
         // Generate the values
+      //    previous=Produits.f;
+                //getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK,e -> previous.showBack() ); 
+
         double[] values = new double[]{50, 99, 11, 30, 25, 60};
         // Set up the renderer
          int[] colors = new int[20];

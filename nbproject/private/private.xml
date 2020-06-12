@@ -15,24 +15,24 @@
         <group>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/InboxForm.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/entities/User.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/entities/produit.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/services/ServicesUsers.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/Employees.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/BaseForm.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/services/ServiceCategorie.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/allProducts.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/MyApplication.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/ConsulterDemandeDemploi.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/topConsulted.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/SignInForm.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/SplashForm.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/statProd.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/DemandeDemploi.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/AddPost.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/entities/SessionUser.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/WalkthruForm.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/services/ServiceProduit.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/BlogForm.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/EditProduit.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/ModifierRecrutement.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/utils/Statics.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/ModifyPost.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/services/ServicePosts.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/entities/Session.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/Produits.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/AddProduit.java</file>

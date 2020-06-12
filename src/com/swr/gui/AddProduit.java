@@ -7,6 +7,9 @@ package com.swr.gui;
 
 import com.codename1.capture.Capture;
 import com.codename1.components.InfiniteProgress;
+import com.codename1.components.InteractionDialog;
+import com.codename1.components.SpanLabel;
+import com.codename1.components.ToastBar;
 import com.codename1.ext.filechooser.FileChooser;
 import com.codename1.io.FileSystemStorage;
 import com.codename1.io.Log;
@@ -23,6 +26,7 @@ import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.List;
 import com.codename1.ui.TextField;
+import com.codename1.ui.geom.Dimension;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.Style;
@@ -32,6 +36,7 @@ import com.swr.entities.Categorie;
 import java.util.ArrayList;
 import com.swr.services.ServiceCategorie;
 import com.codename1.util.StringUtil;
+import com.swr.entities.SessionUser;
 import com.swr.entities.produit;
 import java.io.IOException;
 import java.io.InputStream;
@@ -101,15 +106,37 @@ public class AddProduit extends BaseForm {
         });
  
          this.getToolbar().addMaterialCommandToLeftBar("Back", FontImage.MATERIAL_ARROW_BACK, (e) -> {
-            Produits l = new Produits(theme);
+            Produits l = new Produits(this,theme);
             l.show();
         });
         
         Button add = new Button("Ajouter produit");
         
         add.addActionListener((e)->{
-            produit p = new produit();
-            p.setIdUtilisateur(11);
+            int test=0;
+            System.out.println("IMAGE NAME "+im);
+            
+            if (tnom.getText() =="" || tprix.getText()=="" || tquant.getText()=="" || im == null ||Float.parseFloat(tprix.getText())<=0  || Integer.parseInt(tquant.getText())<=0   ) {
+            InteractionDialog dlg = new InteractionDialog("Erreur d'ajout");
+            dlg.setLayout(new BorderLayout());
+            dlg.add(BorderLayout.CENTER, new SpanLabel("Veuillez remplir tous les champs avec des valeurs logique"));
+            Button close = new Button("Close");
+            close.addActionListener((ee) -> dlg.dispose());
+            dlg.addComponent(BorderLayout.SOUTH, close);
+            Dimension pre = dlg.getContentPane().getPreferredSize();
+            dlg.show(50, 100, 30, 30);
+            return;
+        }
+            
+            
+           /* if(tnom.getText() =="" || tprix.getText()=="" || tquant.getText()=="" || im == null ||Float.parseFloat(tprix.getText())<=0  || Integer.parseInt(tquant.getText())<=0     ){
+                test=1;
+                ToastBar.showMessage("verifier les champs ", FontImage.MATERIAL_INFO); 
+            }
+            if(test==0)
+            {*/
+                  produit p = new produit();
+            p.setIdUtilisateur(SessionUser.loggedUser.getId());
             p.setImage_name(im);
             p.setNom(tnom.getText());
             p.setPrix(Float.parseFloat(tprix.getText()));
@@ -117,9 +144,11 @@ public class AddProduit extends BaseForm {
             
             if(com.swr.services.ServiceProduit.getInstance().addproduit(p,comb.getSelectedItem().getId())){
                 System.out.println("added produit");
-                Produits a =  new Produits(theme);
+                Produits a =  new Produits(this,theme);
                 a.showBack();
             }
+            
+          
             
             ;
         });

@@ -22,6 +22,7 @@ import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import com.swr.entities.Categorie;
 import com.swr.entities.Employe;
+import com.swr.entities.SessionUser;
 import com.swr.entities.produit;
 import com.swr.services.ServiceProduit;
 import java.util.ArrayList;
@@ -34,19 +35,20 @@ import jdk.nashorn.internal.objects.NativeString;
 public class Produits extends BaseForm{
     Form current; 
     Resources theme= UIManager.initFirstTheme("/theme");
+    static Form f;
     
-    Produits(Resources theme) {
+    Produits(Form previous,Resources theme) {
        
         current=this;
-
+        f=this;
           setTitle("Produits"); 
-          
+         getToolbar().addMaterialCommandToLeftBar("Back", FontImage.MATERIAL_ARROW_BACK,e -> previous.showBack() ); 
           
         FloatingActionButton fab = FloatingActionButton.createFAB(FontImage.MATERIAL_ADD);
         fab.addActionListener(e -> new AddProduit(theme).show());
         fab.bindFabToContainer(this.getContentPane());
         
-       for(produit p:com.swr.services.ServiceProduit.getInstance().getAllproduits())
+       for(produit p:com.swr.services.ServiceProduit.getInstance().getAllproduits(SessionUser.loggedUser.getId()))
         { 
             this.add(setProduit(p));
            
@@ -56,17 +58,17 @@ public class Produits extends BaseForm{
        getToolbar().addCommandToOverflowMenu("Statistique produits", null, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-             new statProd().createPieChartForm1(theme).show();
+             new statProd(current,theme).show();
             }
         }); 
        
-         getToolbar().addCommandToOverflowMenu("Consulter Demande d'emploi", null, new ActionListener() {
+         getToolbar().addCommandToOverflowMenu("Logout", null, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-             new ConsulterDemandeDemploi(current).show();   
+             new SignInForm().show();
             }
-        }); 
-      
+        });     
+    
            
         
     } 
@@ -81,6 +83,7 @@ public class Produits extends BaseForm{
         
         Label lbdate=new Label("publié le "+ p.getDate().substring(0,10));
         Label lbcategory=new Label("Categorie :"+p.getIdCategorie().get("nom"));
+        Label lbquant=new Label("Quantite :"+p.getQuantite());
         
         
         
@@ -97,7 +100,7 @@ public class Produits extends BaseForm{
         supp.addPointerPressedListener((e)->{
             com.swr.services.ServiceProduit SP = new ServiceProduit();
             if(ServiceProduit.getInstance().deleteProduit(p.getId_produit())){
-                Produits refresh = new Produits(theme);
+                Produits refresh = new Produits(this,theme);
                 refresh.show();
             }
         });
@@ -109,7 +112,7 @@ public class Produits extends BaseForm{
         });
         
         supedit.addAll(supp,edit);
-        cnt2.addAll(lbnom,lbprix,lbdate,lbcategory,supedit);
+        cnt2.addAll(lbnom,lbprix,lbdate,lbcategory,lbquant,supedit);
         cnt.add(BorderLayout.WEST,lbimg);
         cnt.add(BorderLayout.CENTER,cnt2);
         /*btn.addActionListener((e)->{
