@@ -141,6 +141,7 @@ public class SignInForm extends com.codename1.ui.Form {
               
                     if (auth.checkLogin(gui_Text_Field_2.getText(), gui_Text_Field_1.getText())) {
                         User currentLoggedUser = auth.getUser(gui_Text_Field_2.getText(), gui_Text_Field_1.getText()).get(0);
+                        
                         SessionUser.loggedUser = currentLoggedUser;
                       new InboxForm().show();
                     }
