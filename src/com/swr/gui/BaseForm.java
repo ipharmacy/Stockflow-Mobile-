@@ -78,10 +78,9 @@ Resources theme;
          
         getToolbar().addCommandToSideMenu("Employes", null, e -> {new Employees(this,theme).show();});
         getToolbar().addCommandToSideMenu("Produits", null, e -> {new allProducts(this,theme).show();});
-        getToolbar().addCommandToSideMenu("Blog", null, e -> {
-              new BlogForm(theme,this).show();
-            
-});
+      getToolbar().addCommandToSideMenu("Entrepot", null, e -> {
+        new listEntrepot().show();
+        });
     
         getToolbar().addCommandToSideMenu("Log out", null, e -> {new SignInForm().show();});
         
