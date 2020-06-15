@@ -33,7 +33,7 @@ import java.util.Date;
  * @author Soulah
  */
 public class AddPost extends BaseForm {
-       Form previous;
+       InboxForm previous = new InboxForm();
 Resources theme;
 private String im ;
 
@@ -49,12 +49,12 @@ private String im ;
         
         TextField tfcontenu = new TextField("","Subject of the post ");
         TextField tfcontenu1 = new TextField("","Description");
-         TextField tfcontenu2 = new TextField("","URL IMAGE");
+         //TextField tfcontenu2 = new TextField("","URL IMAGE");
          Button ib= new Button("upload an image");
         Button btnValider = new Button("Add a Post");
         
         
-        ib.addActionListener(new ActionListener(){
+       ib.addActionListener(new ActionListener(){
                 @Override
                 public void actionPerformed(ActionEvent ev) {
                    
@@ -66,7 +66,7 @@ private String im ;
                      String fileNameInServer = "";
                     MultipartRequest cr = new MultipartRequest();
                     String filepath = Capture.capturePhoto(-1, -1);
-                    cr.setUrl("http://localhost/uploadimage.php");
+                    cr.setUrl("http://localhost:8080/uploadimage.php");
                     cr.setPost(true);
                     String mime = "image/jpeg";
                     cr.addData("file", filepath, mime);
@@ -108,7 +108,7 @@ private String im ;
             }
         });
         
-        addAll(tfcontenu,tfcontenu1,tfcontenu2,btnValider,ib);
+        addAll(tfcontenu,tfcontenu1,btnValider,ib);
     }
     
 }

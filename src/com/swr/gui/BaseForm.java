@@ -81,6 +81,10 @@ Resources theme;
       getToolbar().addCommandToSideMenu("Entrepot", null, e -> {
         new listEntrepot().show();
         });
+       getToolbar().addCommandToSideMenu("BLOG", inboxImage, e -> {
+              new BlogForm(theme,this).show();
+            
+            });
     
         getToolbar().addCommandToSideMenu("Log out", null, e -> {new SignInForm().show();});
         

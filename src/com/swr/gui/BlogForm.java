@@ -47,8 +47,8 @@ import java.util.Map;
 public class BlogForm extends BaseForm {
    
     Form instance;
-    Resources theme;
-    ArrayList<Posts> posts=ServicePosts.getInstance().getAllPosts();
+Resources theme;
+ArrayList<Posts> posts=ServicePosts.getInstance().getAllPosts();
 
 
  
@@ -64,10 +64,11 @@ public BlogForm(Resources theme,Form p){
       getToolbar().addCommandToOverflowMenu("Add Post", null, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-             new AddPost(theme,instance).show();   
+             new AddPost(theme,instance).show();
+                
+           
             }
-        }); 
-      
+        });
       
       
       ArrayList<Map<String, Object>> data = new ArrayList<>();
@@ -81,8 +82,8 @@ public BlogForm(Resources theme,Form p){
   EncodedImage placeholder = EncodedImage.createFromImage(Image.createImage(mm * 3, mm * 4, 0), false);
  
     URLImage uRLImage = URLImage.createToStorage(placeholder,
-                ServicePosts.getInstance().getAllPosts().get(i).getType()
-                , "http://127.0.0.1/stockflowWEB/web/images/"+ServicePosts.getInstance().getAllPosts().get(i).getType()); 
+              ServicePosts.getInstance().getAllPosts().get(i).getType()
+                , "http://localhost:8080/stockflowWEB/web/uploads/products/"+ServicePosts.getInstance().getAllPosts().get(i).getType()); 
           
 
   data.add(createListEntry(x,x1,uRLImage));

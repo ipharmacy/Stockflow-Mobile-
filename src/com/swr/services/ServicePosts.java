@@ -28,33 +28,39 @@ public class ServicePosts {
     public  String  result="";
     public static ServicePosts instance=null;
     public boolean resultOK;
-    private ConnectionRequest req;
+    private ConnectionRequest req; // a connection object in the form of a request response typically common for HTTP/HTTPS connections. 
+                                  //A connection request is added to the NetworkManager
 
     public ServicePosts() {
          req = new ConnectionRequest();
     }
 
     public static ServicePosts getInstance() {
-        if (instance == null) {
+        if (instance == null) { 
             instance = new ServicePosts();
         }
         return instance;
     }
 
     public boolean addPost(Posts t) {
-        String url = Statics.BASE_URL + "/news?" +"sujet="+ t.getSujet() +"&" +"description=" + t.getDesciption()+"&"+"type="+t.getType();         req.setUrl(url);
-        req.addResponseListener(new ActionListener<NetworkEvent>() {
+        String url = Statics.BASE_URL + "Blog/news?" +"sujet="+ t.getSujet() +"&" +"description=" + t.getDesciption()+"&"+"type=" + t.getType();   
+        
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() { //generer une reponse http suite au passage dune requete
             @Override
             public void actionPerformed(NetworkEvent evt) {
                 resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
                 req.removeResponseListener(this);
             }
         });
-        NetworkManager.getInstance().addToQueueAndWait(req);
+        NetworkManager.getInstance().addToQueueAndWait(req); //makes sure to route all connections via the network
         return resultOK;
     }
 
     public ArrayList<Posts> parsePosts(String jsonText){
+//A common use of JSON is to exchange data to/from a web server.
+//When receiving data from a web server, the data is always a string.
+//Parse the data with JSON.parse(), and the data becomes a JavaScript object
         try {
             posts=new ArrayList<>();
             JSONParser j = new JSONParser();
@@ -86,7 +92,7 @@ public class ServicePosts {
     }
     
     public ArrayList<Posts> getAllPosts(){
-         String url = "http://localhost/stockflowWEB/web/app_dev.php"+"/all";
+         String url = "http://localhost:8080/stockflowWEB/web/app_dev.php/Blog/all";
         req.setUrl(url);
         req.setPost(false);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
@@ -101,7 +107,7 @@ public class ServicePosts {
     }
     
     public String DeletePost(Posts p){
-          String url = Statics.BASE_URL + "/deletee?id=" + p.getId();
+          String url = Statics.BASE_URL + "Blog/deletee?id=" + p.getId();
           
         req.setUrl(url);// Insertion de l'URL de notre demande de connexion
         System.out.println(url);
@@ -130,7 +136,7 @@ public class ServicePosts {
     }
     
     public boolean EditPost(Posts p) {
-        String url = Statics.BASE_URL + "/editpm?id="+p.getId()
+        String url = Statics.BASE_URL + "Blog/editpm?id="+p.getId()
                 +"&description=" + p.getDesciption();
               
             System.out.println(url);
