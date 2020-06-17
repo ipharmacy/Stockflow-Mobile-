@@ -85,7 +85,7 @@ Resources theme;
               new BlogForm(theme,this).show();
             
             });
-    
+        getToolbar().addCommandToSideMenu("Panier", null, e -> {new Panier(instance).show();});
         getToolbar().addCommandToSideMenu("Log out", null, e -> {new SignInForm().show();});
         
        

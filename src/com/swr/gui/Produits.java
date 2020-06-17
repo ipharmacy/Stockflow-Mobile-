@@ -7,6 +7,7 @@ package com.swr.gui;
 
 import com.codename1.components.FloatingActionButton;
 import com.codename1.components.ImageViewer;
+import com.codename1.db.Database;
 import com.codename1.ui.Button;
 import com.codename1.ui.Container;
 import com.codename1.ui.EncodedImage;
@@ -27,6 +28,11 @@ import com.swr.entities.produit;
 import com.swr.services.ServiceProduit;
 import java.util.ArrayList;
 import jdk.nashorn.internal.objects.NativeString;
+import com.codename1.db.Cursor;
+import com.codename1.db.Database;
+import com.codename1.db.Row;
+import com.codename1.ui.Dialog;
+import java.io.IOException;
 
 /**
  *
@@ -35,6 +41,7 @@ import jdk.nashorn.internal.objects.NativeString;
 public class Produits extends BaseForm{
     Form current; 
     Resources theme= UIManager.initFirstTheme("/theme");
+    Database db;
     static Form f;
     
     Produits(Form previous,Resources theme) {
@@ -110,8 +117,65 @@ public class Produits extends BaseForm{
             EditProduit ep = new EditProduit(theme, p);
             ep.show();
         });
+         Label ajouter = new Label("Ajouter au panier");
+        ajouter.addPointerPressedListener((e)->{
+     
+            
+              try {
+                boolean created = false;
+                created = Database.exists("Pann.db");
+                
+                db = Database.openOrCreate("Pann.db");
+                
+                if (created == false) {
+                    db.execute("create table Pann (id INTEGER PRIMARY KEY AUTOINCREMENT,idproduit INTEGER  ,quantite INTEGER  , nom TEXT )");
+                }
+                 Cursor result = db.executeQuery("select * from Pann where idproduit = "+p.getId_produit());
+                 
+                  int i = 0 ;
+                  int a =0 ;
+                  boolean exist = false;
+            
+                  
+         while (result.next()) {
+             Row r = result.getRow();
+             
+           
+           
+            if ( (int)Double.parseDouble(r.getString(1)) == p.getId_produit() )
+            {
+                a = (int)Double.parseDouble(r.getString(2))+1;
+                System.out.println( a);
+                db.execute("update  Pann set quantite = "+a+" where idproduit ="+p.getId_produit());
+                exist =true ;
+            }
+            
+ 
+               
+             
+         }
+         if (!exist)
+             db.execute("insert into Pann (idproduit,quantite,nom) values ('"+p.getId_produit()+"','1','"+p.getNom()+"')");
+                 
+                  System.out.println(p.getNom());
+                 
+              Dialog.show("Info", "Produit ajouté au panier!", "ok", null);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+               
+            }
+        });
         
-        supedit.addAll(supp,edit);
+      
+        
+        
+        
+      
+        
+        
+       
+        
+        supedit.addAll(supp,edit,ajouter);
         cnt2.addAll(lbnom,lbprix,lbdate,lbcategory,lbquant,supedit);
         cnt.add(BorderLayout.WEST,lbimg);
         cnt.add(BorderLayout.CENTER,cnt2);

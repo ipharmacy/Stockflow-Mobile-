@@ -234,5 +234,18 @@ public class ServiceProduit {
         NetworkManager.getInstance().addToQueueAndWait(req);
         return nbProduit;
     }
+         public void ajoutpanier(String a ,String b) {
+        ConnectionRequest con = new ConnectionRequest();// création d'une nouvelle demande de connexion
+        String Url = "http://localhost:8080/StockflowWEB/web/app_dev.php/commande/gerer_Commande_mobile?ids="+a+"&qte="+b;// création de l'URL
+        con.setUrl(Url);// Insertion de l'URL de notre demande de connexion
+
+        con.addResponseListener((e) -> {
+            String str = new String(con.getResponseData());//Récupération de la réponse du serveur
+            System.out.println(str);//Affichage de la réponse serveur sur la console
+
+        });
+        NetworkManager.getInstance().addToQueueAndWait(con);// Ajout de notre demande de connexion à la file d'attente du NetworkManager
+    }
+
 
 }

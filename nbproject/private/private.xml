@@ -18,12 +18,15 @@
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/BaseForm.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/EmployesSortedByLastName.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/Employees.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/ModifierRecrutement.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/utils/Statics.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/Panier.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/ConsulterDemandeDemploi.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/SignInForm.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/services/ServicesRecrutement.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/services/ServiceProduit.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/ModifierRecrutement.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/utils/Statics.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/services/ServicesTache.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/Produits.java</file>
         </group>
     </open-files>
 </project-private>
