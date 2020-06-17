@@ -33,7 +33,18 @@ import com.swr.services.ServicesUsers;
  */
 public class SignInForm extends com.codename1.ui.Form {
     private static User User;
+    static User u ;
+    
+     public static User getUser()
+    {
+        return u ;
+    }
+    public static void setUser(User u)
+    {
+        SignInForm.u=u;
+    }
 
+    
     public SignInForm() {
         this(com.codename1.ui.util.Resources.getGlobalResources());
     }
@@ -141,7 +152,7 @@ public class SignInForm extends com.codename1.ui.Form {
               
                     if (auth.checkLogin(gui_Text_Field_2.getText(), gui_Text_Field_1.getText())) {
                         User currentLoggedUser = auth.getUser(gui_Text_Field_2.getText(), gui_Text_Field_1.getText()).get(0);
-                        
+                        u= auth.getUser(gui_Text_Field_2.getText(), gui_Text_Field_1.getText()).get(0);
                         SessionUser.loggedUser = currentLoggedUser;
                       new InboxForm().show();
                     }

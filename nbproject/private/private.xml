@@ -6,36 +6,24 @@
             <url>src/com/swr/gui/BlogForm.java</url>
             <bookmark id="1">
                 <name/>
-                <line>83</line>
+                <line>143</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/InboxForm.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/entities/User.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/entities/produit.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/services/ServicesUsers.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/services/ServicesEmploye.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/entities/Tache.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/BaseForm.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/services/ServiceCategorie.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/allProducts.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/MyApplication.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/topConsulted.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/SignInForm.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/SplashForm.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/statProd.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/AddPost.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/entities/SessionUser.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/WalkthruForm.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/services/ServiceProduit.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/BlogForm.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/EditProduit.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/EmployesSortedByLastName.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/Employees.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/ModifierRecrutement.java</file>
             <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/utils/Statics.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/ModifyPost.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/entities/Session.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/Produits.java</file>
-            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/AddProduit.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/ConsulterDemandeDemploi.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/gui/SignInForm.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/services/ServicesRecrutement.java</file>
+            <file>file:/C:/Users/Dhia/Desktop/swr-mobile/src/com/swr/services/ServicesTache.java</file>
         </group>
     </open-files>
 </project-private>

@@ -45,7 +45,7 @@ public class ServicesEmploye {
     }
 
     public boolean addEmploye(Employe e) {
-        String url = Statics.BASE_URL + "/employe/newEmploye?name=" + e.getNom() + "&prenom=" + e.getPrenom() + "&mail=" + e.getMail() + "&numTel=" + e.getNumTel() + "&cin=" + e.getCin() + "&poste=" + e.getPoste() + "&salaire=" + e.getSalaire()+"&photo="+e.getPhoto();
+        String url = Statics.BASE_URL + "employe/newEmploye?name=" + e.getNom() + "&prenom=" + e.getPrenom() + "&mail=" + e.getMail() + "&numTel=" + e.getNumTel() + "&cin=" + e.getCin() + "&poste=" + e.getPoste() + "&salaire=" + e.getSalaire()+"&photo="+e.getPhoto();
         req.setUrl(url);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -141,8 +141,8 @@ public class ServicesEmploye {
         return employes;
     }
 
-    public ArrayList<Employe> getAllEmployes() {
-        String url = Statics.BASE_URL + "/employe/findAllEmployes";
+    public ArrayList<Employe> getAllEmployes(){
+        String url = Statics.BASE_URL + "employe/findAllEmployes";
         req.setUrl(url);
         req.setPost(false);
         req.addResponseListener(new ActionListener() {
@@ -155,9 +155,48 @@ public class ServicesEmploye {
         NetworkManager.getInstance().addToQueueAndWait(req);
         return employes;
     }
+    
+//    
+     public ArrayList<Employe> getAllEmployesSortedByLastName(){
+        String url = Statics.BASE_URL + "employe/sortLastName";
+        req.setUrl(url);
+        req.setPost(false);
+        req.addResponseListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                employes = parseEmployes(new String(req.getResponseData()));
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return employes;
+    }
+    
+     
+     public ArrayList<Employe> getAllEmployesSortedByStatus(){
+        String url = Statics.BASE_URL + "employe/sortstatus";
+        req.setUrl(url);
+        req.setPost(false);
+        req.addResponseListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                employes = parseEmployes(new String(req.getResponseData()));
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return employes;
+    }
+    
+    
+    
+    
+    
+    
+    
 
     public ArrayList<Employe> getEmploye(String Name) {
-        String url = Statics.BASE_URL + "/employe/returnEmploye?prenom=" + Name;
+        String url = Statics.BASE_URL + "employe/returnEmploye?prenom=" + Name;
         req.setUrl(url);
         req.setPost(false);
         req.addResponseListener(new ActionListener() {

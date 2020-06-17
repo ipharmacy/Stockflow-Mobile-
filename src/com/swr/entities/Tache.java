@@ -14,8 +14,16 @@ import java.util.Date;
  */
 public class Tache {
     private int id,idUtilisateur,idEmploye,etat;
-    private String commentaire;
+    private String commentaire,Utilisateur;
     private Date dateAttribution,DateLimite;
+
+    public String getUtilisateur() {
+        return Utilisateur;
+    }
+
+    public void setUtilisateur(String Utilisateur) {
+        this.Utilisateur = Utilisateur;
+    }
     private String nomEmploye,prenomEmploye;
 
     public String getNomEmploye() {

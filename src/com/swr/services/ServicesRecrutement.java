@@ -95,11 +95,7 @@ public class ServicesRecrutement {
                 r.setNumTel((int)numTel);
                 r.setEtat((int)etat);
                 r.setDt(dt);
-                
-//                LinkedHashMap<String,Object> date = (LinkedHashMap<String,Object>) obj.get("dateNaissance"); 
-//                        double k = (double) date.get("timestamp");
-//                        long x = (long) (k * 1000L);
-//                        r.setDateNaissance(new Date(x));
+      
                recrutements.add(r);
             }
         } catch (IOException ex) {
@@ -110,7 +106,7 @@ public class ServicesRecrutement {
          
     public ArrayList <Recrutement> getAllRecrutements()
     {
-        String url=Statics.BASE_URL+"/recrutement/all_recrutement";
+        String url=Statics.BASE_URL+"recrutement/all_recrutement";
         req.setUrl(url);
         req.setPost(false);
         req.addResponseListener(new ActionListener() {
@@ -128,7 +124,7 @@ public class ServicesRecrutement {
             
             
         public boolean Entretien(Recrutement r) {
-        String url = Statics.BASE_URL + "/recrutement/envoieMail?mail="+r.getMail();
+        String url = Statics.BASE_URL + "recrutement/envoieMail?mail="+r.getMail();
         req.setUrl(url);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -143,7 +139,7 @@ public class ServicesRecrutement {
         
         
         public boolean SendMailEmploye(String sujet,String source,String destination,String message) {
-        String url = Statics.BASE_URL + "/employe/sendMail?sujet="+sujet+"&source="+source+"&destination="+destination+"&message="+message;
+        String url = Statics.BASE_URL + "employe/sendMail?sujet="+sujet+"&source="+source+"&destination="+destination+"&message="+message;
         req.setUrl(url);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
